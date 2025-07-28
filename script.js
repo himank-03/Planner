@@ -107,7 +107,8 @@ function selectDate(dateKey) {
 }
 
 function formatDateDisplay(dateStr) {
-  const dateObj = new Date(dateStr);
+  const [year, month, day] = dateStr.split("-");
+  const dateObj = new Date(year, month - 1, day);
   return dateObj.toDateString(); // e.g., "Mon Jul 28 2025"
 }
 
