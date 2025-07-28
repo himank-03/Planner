@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planner</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08); /* light see-through */
+  backdrop-filter: blur(20px); /* frosted blur */
+  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25); /* smooth shadow */
+  color: white;
+}
+
+
+    .left, .right {
+      flex: 1;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .day-buttons button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      margin: 5px 5px 10px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .day-buttons button:hover {
+      background-color: #45a049;
+    }
+
+    #taskInput {
+      padding: 10px;
+      width: 70%;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    #addTaskBtn {
+      padding: 10px 16px;
+      margin-left: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+  background: rgba(255, 255, 255, 0.15);
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+#clock {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #33d175;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+#clockMode {
+  padding: 5px;
+  border-radius: 6px;
+}
+
+#analogClock {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+}
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid #dddddd00;
+    }
+
+    th {
+      background-color: #f0f0f000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+  <h2 id="clock"></h2>
+  <select id="clockMode" onchange="changeClockMode()">
+    <option value="digital24">24-Hour</option>
+    <option value="digital12">12-Hour</option>
+    <option value="analog">Analog</option>
+  </select>
+</div>
+<canvas id="analogClock" width="100" height="100" style="display: none;"></canvas>
+
+      <h1 id="date">Monday 28 July, 2025</h1>
+      <p class="quote" id="quote">Believe in yourself!</p>
+
+      <div class="day-buttons">
+        <button onclick="switchDay('Monday')">Monday</button>
+        <button onclick="switchDay('Tuesday')">Tuesday</button>
+        <button onclick="switchDay('Wednesday')">Wednesday</button>
+        <button onclick="switchDay('Thursday')">Thursday</button>
+        <button onclick="switchDay('Friday')">Friday</button>
+        <button onclick="switchDay('Saturday')">Saturday</button>
+        <button onclick="switchDay('Sunday')">Sunday</button>
+      </div>
+
+      <h2 id="currentDay">Monday</h2>
+
+      <input id="taskInput" type="text" placeholder="Add a task..." />
+      <button id="addTaskBtn" onclick="addTask()">Add Task</button>
+
+      <ul id="taskList"></ul>
+    </div>
+
+    <div class="right">
+      <h2 id="monthYear">July 2025</h2>
+      <div id="calendar"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
