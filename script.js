@@ -89,7 +89,8 @@ function renderCalendar() {
       calendarHTML += "</tr><tr>";
     }
 
-    const dateObj = new Date(year, month, day);
+    // ✅ Timezone-safe: set time to noon to prevent date shifting
+    const dateObj = new Date(year, month, day, 12); // 👈 fixed here
     const dateKey = dateObj.toISOString().split("T")[0];
     const isToday = dateKey === new Date().toISOString().split("T")[0] ? 'class="today"' : '';
 
