@@ -1,24 +1,22 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  font-size: 15px;            /* reduce base font */
+  font-size: 15px;
   background: url('images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #f0f0f0;
 }
 
-
 .container {
   max-width: 800px;
-  margin: 140px auto; /* push it down into blurred space */
+  margin: 140px auto;
   padding: 25px;
-  background: rgba(20, 20, 30, 0.6); /* semi-transparent black */
+  background: rgba(20, 20, 30, 0.6);
   border-radius: 20px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
-
 
 header {
   display: flex;
@@ -62,8 +60,9 @@ nav {
 .task-list input[type="checkbox"] {
   margin-right: 10px;
 }
+
 .header-banner {
-  background-image: url('https://i.imgur.com/qz6Z7uY.png'); /* pixel aesthetic */
+  background-image: url('https://i.imgur.com/qz6Z7uY.png');
   background-size: cover;
   background-position: center;
   border-radius: 15px;
@@ -72,6 +71,7 @@ nav {
   color: #fff;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
 .quote-box {
   background-color: #292a33;
   border-left: 5px solid #9effc1;
@@ -83,6 +83,7 @@ nav {
   font-size: 1.1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
+
 .add-task-box {
   display: flex;
   gap: 10px;
@@ -111,6 +112,7 @@ nav {
 .add-task-box button:hover {
   background-color: #7c82ff;
 }
+
 .danger-btn {
   background-color: #ff5e5e;
 }
@@ -118,6 +120,7 @@ nav {
 .danger-btn:hover {
   background-color: #ff3b3b;
 }
+
 .date-box {
   margin-bottom: 20px;
   background-color: #2e2f38;
@@ -129,6 +132,7 @@ nav {
   font-weight: bold;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
+
 .focus-btn {
   background-color: #1f9c89;
   color: white;
@@ -144,21 +148,24 @@ nav {
 }
 
 .planner-header h1 {
-  font-size: 22px;             /* reduce main title size */
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
 .planner-header .date {
-  font-size: 14px;             /* reduce date font */
+  font-size: 14px;
 }
+
 .task input[type="text"] {
   font-size: 14px;
   padding: 6px 10px;
 }
+
 .task button {
   padding: 6px 10px;
   font-size: 13px;
 }
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -208,4 +215,57 @@ nav {
 .today {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+}
+
+
+/* ✅ MOBILE RESPONSIVENESS (ADDED BELOW) */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .left, .calendar {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .container {
+    margin: 80px 10px;
+    padding: 20px;
+  }
+
+  .planner-header h1 {
+    font-size: 18px;
+  }
+
+  .planner-header .date {
+    font-size: 12px;
+  }
+
+  #clock {
+    font-size: 1.2rem;
+  }
+
+  .tab {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .add-task-box {
+    flex-direction: column;
+  }
+
+  .add-task-box input, .add-task-box button {
+    width: 100%;
+  }
+
+  .quote-box {
+    font-size: 1rem;
+  }
+
+  .date-box {
+    font-size: 0.9rem;
+  }
 }
